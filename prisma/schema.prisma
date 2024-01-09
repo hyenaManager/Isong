@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+enum UserRole {
+  ADMIN
+  BASIC
+}
+
+model User {
+  id       String   @id @default(uuid())
+  username String
+  email    String   @unique
+  songs    Song[]
+  role     UserRole @default(BASIC)
+}
+
+model Lyric {
+  id               String @id @unique @default(uuid())
+  lyric_line       String
+  lyricType        String @default("lyric")
+  parent_verse     Verse  @relation(fields: [VerseId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  VerseId          String
+  lower_case_lyric String @default("small")
+}
+
+model Verse {
+  id           String   @id @unique @default(uuid())
+  verse_number Int
+  lyrics       Lyric[]
+  type         String
+  Song         Song     @relation(fields: [songId], references: [id], onDelete: Cascade)
+  songId       String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default("2023-11-21T05:39:17.170Z") @updatedAt()
+}
+
+model Song {
+  id                  String  @id @unique @default(uuid())
+  title               String
+  titleLowerCase      String
+  songType            String  @default("pop")
+  verses              Verse[]
+  key                 String
+  officialSongWritter String?
+  officialSinger      String?
+  video               String?
+  audio               String?
+  coverImage          String  @default("https://firebasestorage.googleapis.com/v0/b/g-songs.appspot.com/o/music-pics%2Fsonglogo.jpg?alt=media&token=8ea54eef-170c-4923-8ee1-d582f39204a7")
+  author              User    @relation(fields: [userEmail], references: [email])
+  userEmail           String
+}
