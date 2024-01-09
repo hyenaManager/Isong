@@ -160,6 +160,7 @@ export default function CreateSong({ versess, titlee, keyy }: creatingProps) {
           <div className=" flex justify-center flex-wrap items-start p-1 ">
             {verses?.map((verse) => (
               <VerseCreator
+                key={verse.id}
                 hidedVerses={hidedVerses}
                 toogleShowHide={showOrHideVerse}
                 setCurrentVerse={setCurrentVerseId}

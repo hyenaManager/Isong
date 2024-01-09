@@ -11,8 +11,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 // import Again from "@/app/importTest"
 import TestingJSX from "./testJsx";
-import nProgress from "nprogress";
-import LoadingUI from "../loadingProgress";
 // const fetchSongsByType = async () => {
 //   const res = await axios.get(
 //     `http://localhost:3000/api/song/type?songType=${"dd"}`
@@ -48,7 +46,7 @@ export default function Song() {
   }, [data, songType]);
   return (
     <>
-      <TestingJSX mydata={"this is testing jsx"} />
+      {/* <TestingJSX mydata={"this is testing jsx"} /> */}
       <div className="flex flex-col relative ">
         {status === "pending" && <SongSkeleton />}
         {data && setFilteredSong?.length === 0 && (
