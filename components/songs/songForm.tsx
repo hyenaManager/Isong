@@ -71,7 +71,6 @@ export default function SongForm({
       }
     },
   });
-  if (status !== "pending" && data?.length === 0) return;
   const editQuery = {
     songId: songId,
     title: title,
@@ -88,6 +87,7 @@ export default function SongForm({
       setUser(currentUser);
     });
   }, []);
+  if (status !== "pending" && data?.length === 0) return;
   return (
     <div className="pageWarper flex flex-col relative w-fit ">
       <article className="pageWarper  flex justify-center overflow-auto  ">
