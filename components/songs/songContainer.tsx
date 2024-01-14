@@ -10,7 +10,6 @@ import SongForm from "./songForm";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 // import Again from "@/app/importTest"
-import TestingJSX from "./testJsx";
 // const fetchSongsByType = async () => {
 //   const res = await axios.get(
 //     `http://localhost:3000/api/song/type?songType=${"dd"}`

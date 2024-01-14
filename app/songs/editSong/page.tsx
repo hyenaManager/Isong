@@ -9,7 +9,6 @@ import SomethingLoading from "@/components/loadingSomething";
 import toast from "react-hot-toast";
 import { SelectSongType } from "@/components/songTypeSelect";
 import BackButton from "@/components/icons/backIcon";
-import LoadingUI from "@/components/loadingProgress";
 
 export default function EditSong() {
   const searchParams = useSearchParams();

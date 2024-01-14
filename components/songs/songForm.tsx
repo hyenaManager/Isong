@@ -58,11 +58,6 @@ export default function SongForm({
     },
   });
   const queryClient = useQueryClient();
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  }, []);
   const deleteSong = useMutation({
     mutationFn: async () => {
       const response = await axios.delete(
@@ -88,6 +83,11 @@ export default function SongForm({
     deleteSong.mutate();
     setDeletingSong(true);
   };
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
   return (
     <div className="pageWarper flex flex-col relative w-fit ">
       <article className="pageWarper  flex justify-center overflow-auto  ">
