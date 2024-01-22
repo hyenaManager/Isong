@@ -52,7 +52,7 @@ export default function SongForm({
     queryKey: ["verses", versesIds],
     queryFn: async () => {
       const verses = await axios.get(
-        `http://localhost:3000/api/verse?verses=${versesIds.join(",")}`
+        `https://isong-rose.vercel.app//api/verse?verses=${versesIds.join(",")}`
       );
       return verses.data;
     },
@@ -61,7 +61,7 @@ export default function SongForm({
   const deleteSong = useMutation({
     mutationFn: async () => {
       const response = await axios.delete(
-        `http://localhost:3000/api/song/${songId}`
+        `https://isong-rose.vercel.app//api/song/${songId}`
       );
       if (response.status === 200) {
         setDeletingSong(false), toast.success("delete success");

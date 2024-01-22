@@ -27,7 +27,7 @@ export default function EditSong() {
     queryKey: ["verses", versesIds],
     queryFn: async () => {
       const verses = await axios.get(
-        `http://localhost:3000/api/verse?verses=${versesIds.join(",")}`
+        `https://isong-rose.vercel.app//api/verse?verses=${versesIds.join(",")}`
       );
       return verses.data;
     },
@@ -64,7 +64,7 @@ export default function EditSong() {
   };
   const updateVerses = useMutation({
     mutationFn: async () => {
-      const res = await axios.put("http://localhost:3000/api/verse", {
+      const res = await axios.put("https://isong-rose.vercel.app//api/verse", {
         verses: verses,
         title: title,
         key: key,
