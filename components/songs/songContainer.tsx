@@ -43,11 +43,14 @@ export default function Song() {
       setFilteredSong(data.filter((song: Song) => song.songType === songType));
     }
   }, [data, songType]);
+  console.log("all songs: ", data);
+
   return (
     <>
       {/* <TestingJSX mydata={"this is testing jsx"} /> */}
       <div className="flex flex-col relative ">
-        {status === "pending" && <SongSkeleton />}
+        {status === "pending" &&
+          [1, 2, 3, 4].map((num) => <SongSkeleton key={num} />)}
         {data && filteredSong?.length === 0 && (
           <h3 className="xsm:text-lg sm:text-2xl text-center">
             {` ${songType} doesn't exist yet :)`}
