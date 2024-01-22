@@ -71,7 +71,7 @@ export default function RegisterHere() {
           Cookies.set("firebase-auth", "true");
         }
       );
-      await axios.post("https://isong-rose.vercel.app//api/user", {
+      await axios.post("https://isong-rose.vercel.app/api/user", {
         username: userName,
         email: email,
       });

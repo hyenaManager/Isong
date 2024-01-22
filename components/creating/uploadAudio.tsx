@@ -44,7 +44,7 @@ export default function UploadAudio({
         throw new Error("please choose song type");
       }
       const response = await axios.post(
-        "https://isong-rose.vercel.app//api/song",
+        "https://isong-rose.vercel.app/api/song",
         {
           userEmail: user?.email,
           title: title,

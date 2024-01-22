@@ -12,7 +12,7 @@ import Image from "next/image";
 // import Again from "@/app/importTest"
 // const fetchSongsByType = async () => {
 //   const res = await axios.get(
-//     `https://isong-rose.vercel.app//api/song/type?songType=${"dd"}`
+//     `https://isong-rose.vercel.app/api/song/type?songType=${"dd"}`
 //   );
 //   if (res.status === 200) {
 //     console.log(res);
@@ -28,7 +28,7 @@ export default function Song() {
   const { data, status } = useQuery({
     queryKey: ["songs"],
     queryFn: async () => {
-      const res = await axios.get(`https://isong-rose.vercel.app//api/song`);
+      const res = await axios.get(`https://isong-rose.vercel.app/api/song`);
       if (res.status === 200) {
         console.log(res);
         return res.data;
