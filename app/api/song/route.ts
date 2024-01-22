@@ -13,7 +13,6 @@ export async function POST(request:NextRequest){
     } catch (error:any) {
         return new Response("Error",{
             status:500,
-            statusText:error.message as string
         })
     }
 }

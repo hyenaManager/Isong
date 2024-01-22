@@ -34,9 +34,7 @@ export async function AddSong(data: any) {
           return "success"
         
     } catch (error) {
-      console.log("from song back:",error);
-      
-        throw error
+        return error
     }
   }
 
