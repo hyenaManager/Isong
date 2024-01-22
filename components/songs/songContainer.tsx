@@ -39,7 +39,7 @@ export default function Song() {
   });
 
   useEffect(() => {
-    if (data) {
+    if (data.length > 0) {
       setFilteredSong(data.filter((song: Song) => song.songType === songType));
     }
   }, [data, songType]);
@@ -48,14 +48,14 @@ export default function Song() {
       {/* <TestingJSX mydata={"this is testing jsx"} /> */}
       <div className="flex flex-col relative ">
         {status === "pending" && <SongSkeleton />}
-        {data && setFilteredSong?.length === 0 && (
+        {data && filteredSong?.length === 0 && (
           <h3 className="xsm:text-lg sm:text-2xl text-center">
             {` ${songType} doesn't exist yet :)`}
           </h3>
         )}
 
         {status === "success" &&
-          filteredSong &&
+          filteredSong.length > 0 &&
           filteredSong.map((song: Song, index: number) => (
             <article
               key={index}
