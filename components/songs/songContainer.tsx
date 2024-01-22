@@ -39,7 +39,7 @@ export default function Song() {
   });
 
   useEffect(() => {
-    if (data.length > 0) {
+    if (data && data.length > 0) {
       setFilteredSong(data.filter((song: Song) => song.songType === songType));
     }
   }, [data, songType]);
@@ -55,7 +55,7 @@ export default function Song() {
         )}
 
         {status === "success" &&
-          filteredSong.length > 0 &&
+          filteredSong &&
           filteredSong.map((song: Song, index: number) => (
             <article
               key={index}
